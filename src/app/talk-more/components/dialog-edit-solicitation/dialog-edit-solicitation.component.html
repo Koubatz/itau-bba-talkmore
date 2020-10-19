@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="container-label">
+        <h1>Editar solicitação</h1>
+        <h2>insira aqui as alterações que gostaria de realizar na sua solicitação</h2>
+    </div>
+
+    <mat-spinner *ngIf="isLoading" class="container-loading"></mat-spinner>
+
+    <div *ngIf="!isLoading" class="container-form">
+        <div class="container-grid">
+            <mat-form-field class="enterprise-input">
+                <mat-label>Empresa</mat-label>
+                <input matInput [(ngModel)]="talkMore.empresa" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>CNPJ</mat-label>
+                <input matInput mask="00.000.000/0000-00" [(ngModel)]="talkMore.cnpj" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Plano</mat-label>
+                <mat-select [(ngModel)]="talkMore.plano" required>
+                    <mat-option *ngFor="let plan of dropdownPlans" [value]="plan">
+                      {{plan}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Tarifa</mat-label>
+                <input matInput type="text" prefix="R$" [(ngModel)]="talkMore.tarifa" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Minutos</mat-label>
+                <input matInput type="text" suffix=" minutos" [(ngModel)]="talkMore.minutos" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Valor do Plano</mat-label>
+                <input matInput type="text" prefix="R$" thousandSeparator="." [(ngModel)]="talkMore.valorPlano" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Data de Adesão</mat-label>
+                <input matInput type="text" mask="0000/M0/d0" [(ngModel)]="talkMore.dataAdesao" required/>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-dialog-actions *ngIf="!isLoading" align="end"> 
+        <button mat-button class="btn-secondary cancel-button" mat-dialog-close>Cancelar</button> 
+        <button mat-button class="btn-primary" [mat-dialog-close]="true" (click)="editTalkMoreSolicitation()">Editar solicitação</button> 
+    </mat-dialog-actions>
+</div>

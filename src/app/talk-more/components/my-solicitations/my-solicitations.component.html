@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="container-label">
+        <h1>Minhas solicitações</h1>
+        <h2>aqui você pode acompanhar o andamento de suas solicitações</h2>
+    </div>
+
+    <mat-spinner *ngIf="isLoading" class="container-loading"></mat-spinner>
+
+    <div *ngIf="!isLoading" class="container-table">
+        <table mat-table [dataSource]="talkMoreList">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell class="item-bold" *matCellDef="let talkMore"> {{talkMore.solicitacaoId | uppercase}} </td>
+            </ng-container>
+             
+            <ng-container matColumnDef="empresa">
+                <th mat-header-cell *matHeaderCellDef> Empresa </th>
+                <td mat-cell *matCellDef="let talkMore">
+                    <span class="item-bold">{{talkMore.empresa}} </span>
+                    <br>
+                    <span class="item-default">CNPJ: {{talkMore.cnpj | mask: '00.000.000/0000-00'}}</span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="plano">
+                <th mat-header-cell *matHeaderCellDef> Plano </th>
+                <td mat-cell class="item-bold" *matCellDef="let talkMore"> {{talkMore.plano}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tarifa">
+                <th mat-header-cell *matHeaderCellDef> Tarifa </th>
+                <td mat-cell class="item-default" *matCellDef="let talkMore"> {{talkMore.tarifa | currency:"BRL":"symbol"}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="minutos">
+                <th mat-header-cell *matHeaderCellDef> Minutos </th>
+                <td mat-cell class="item-default" *matCellDef="let talkMore"> {{talkMore.minutos}} min</td>
+            </ng-container>
+
+            <ng-container matColumnDef="valorPlano">
+                <th mat-header-cell *matHeaderCellDef> Valor Plano </th>
+                <td mat-cell class="item-default" *matCellDef="let talkMore"> {{talkMore.valorPlano | currency:"BRL":"symbol"}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dataAdesao">
+                <th mat-header-cell *matHeaderCellDef> Data de Adesão </th>
+                <td mat-cell class="item-default" *matCellDef="let talkMore"> {{talkMore.dataAdesao | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dataEnvio">
+                <th mat-header-cell *matHeaderCellDef> Data de Envio </th>
+                <td mat-cell class="item-default" *matCellDef="let talkMore"> {{talkMore.dataEnvio | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef> Ação </th>
+                <td mat-cell *matCellDef="let talkMore; let i = index">
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_horiz</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="openDialogEditSolicitation(talkMore._id)">
+                      <mat-icon>edit</mat-icon>
+                      <span>Editar</span>
+                    </button>
+                    <button mat-menu-item (click)="removeTalkMoreSolicitation(talkMore._id)">
+                      <mat-icon>delete</mat-icon>
+                      <span>Excluir</span>
+                    </button>
+                  </mat-menu>
+                </td>
+              </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        </table>
+    </div>
+</div>

@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons")
+@import 'src/assets/styles/colors.sass'
+
+*
+    font-size: 12px
+    font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", serif
+
+html body
+    height: 100%
+    width: 100%
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+button 
+    cursor: pointer
+    display: flex
+    border: none
+    letter-spacing: 0
+    background-color: transparent
+
+h1
+    font-size: 26px
+    font-weight: 600
+    margin: 0
+    
+
+h2
+    font-size: 12px
+    margin: 0
+
+table
+    width: 100%
+
+th
+    font-weight: bold
+
+td
+    border: none !important
+    height: 60px
+
+.material-icons
+    font-family: "Material Icons"
+
+.container-loading
+    position: absolute
+    top: 50%
+    left: 50%
+
+button.mat-menu-item
+    align-items: baseline
+
+.btn-primary
+    width: 200px
+    height: 36px
+    background-color: $itau-orange
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 4px
+    margin-bottom: 24px
+    color: white
+    font-weight: bold
+
+    &:hover
+        background-color: $itau-orange-hover
+
+.btn-secondary
+    width: 200px
+    height: 36px
+    border: 1px solid
+    background-color: $background
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 4px
+    margin-bottom: 24px
+    color: $secondary
+    font-weight: bold
+
+    &:hover
+        background-color: $btn-secondary-hover

@@ -1,0 +1,67 @@
+@import 'src/styles.sass'
+
+.mat-toolbar
+    height: 90px
+    justify-content: center
+
+    .mat-toolbar-row
+        padding: 0 60px
+        display: flex
+        justify-content: space-between
+
+        .itau-bba-logo
+            width: 100px
+            height: 100px
+
+        .user-container
+            display: flex
+
+            .user-help
+                display: flex
+                align-items: center
+                justify-content: center
+
+                .help-button
+                    padding: 0px 16px
+
+                    &:hover
+                        color: $itau-blue
+
+                    .help-icon
+                        margin-right: 6px
+                        font-weight: 600
+                        font-size: 18px
+                        width: 18px
+                        height: 18px
+
+            .user-info
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 0px 16px
+                border-left: 1px solid $secondary
+
+                .user-circle
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    background-color: $itau-blue
+                    color: white
+                    font-size: 16px
+                    margin: 0 16px
+                    width: 52px
+                    height: 52px
+                    border-radius: 50px
+                    
+                .user-menu
+                    font-size: 12px
+                    margin-right: 32px
+
+                    .enterprise-name
+                        color: $secondary
+
+                .arrow-down
+                    font-size: 18px
+                    width: 18px
+                    height: 18px
+

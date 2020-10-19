@@ -1,0 +1,64 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+$itau-blue: (
+  50: #004388,
+  100: #004388,
+  200: #004388,
+  300: #004388,
+  400: #004388,
+  500: #004388,
+  600: #004388,
+  700: #004388,
+  800: #004388,
+  900: #004388,
+  A100: #004388,
+  A200: #004388,
+  A400: #004388,
+  A700: #004388,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$itautel-talkmore-primary: mat-palette($itau-blue);
+$itautel-talkmore-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$itautel-talkmore-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$itautel-talkmore-theme: mat-light-theme($itautel-talkmore-primary, $itautel-talkmore-accent, $itautel-talkmore-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($itautel-talkmore-theme);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

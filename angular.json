@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.sass"
             ],
             "scripts": []
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "itautel-talkmore"
+    }
+  },
+  "defaultProject": "itautel-talkmore",
+  "cli": {
+    "analytics": false
+  }
 }

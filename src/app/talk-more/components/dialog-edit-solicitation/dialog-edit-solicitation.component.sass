@@ -1,0 +1,28 @@
+@import 'src/styles.sass'
+
+.container
+    width: 100%
+    height: 100%
+
+    .container-label
+        height: 30%
+
+    .container-form
+        display: flex
+        align-items: flex-end
+        justify-content: space-between
+        padding: 32px 0px
+
+        .container-grid
+            width: 70%
+            height: 132px
+            display: grid
+            grid-template-columns: repeat(4, 1fr)
+            grid-template-rows: repeat(2, 1fr)
+            grid-column-gap: 8px
+
+            .enterprise-input
+                grid-column: 1/3
+                
+.cancel-button
+    margin-right: 16px

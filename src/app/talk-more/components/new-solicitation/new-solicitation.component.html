@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="container-label">
+        <h1>Nova solicitação</h1>
+        <h2>insira aqui os dados cadastrais para uma nova solicitação</h2>
+    </div>
+    <div class="container-form">
+        <div class="container-grid">
+            <mat-form-field class="enterprise-input">
+                <mat-label>Empresa</mat-label>
+                <input matInput [(ngModel)]="talkMore.empresa" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>CNPJ</mat-label>
+                <input matInput mask="00.000.000/0000-00" [(ngModel)]="talkMore.cnpj" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Plano</mat-label>
+                <mat-select [(ngModel)]="talkMore.plano" required>
+                    <mat-option *ngFor="let plan of dropdownPlans" [value]="plan">
+                      {{plan}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Tarifa</mat-label>
+                <input matInput type="text" prefix="R$" mask="separator.2" thousandSeparator="." [(ngModel)]="talkMore.tarifa" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Minutos</mat-label>
+                <input matInput type="text" suffix=" minutos" mask="separator.2" thousandSeparator="." [(ngModel)]="talkMore.minutos" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Valor do Plano</mat-label>
+                <input matInput type="text" prefix="R$" mask="separator.2" thousandSeparator="." [(ngModel)]="talkMore.valorPlano" required/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Data de Adesão</mat-label>
+                <input matInput type="text" mask="00/00/0000" [(ngModel)]="talkMore.dataAdesao" required/>
+            </mat-form-field>
+        </div>
+
+        <button mat-button class="btn-primary" (click)="addTalkMoreSolicitation()">Adicionar Solicitação</button>
+    </div>
+</div>
